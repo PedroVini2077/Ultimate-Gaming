@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Gaming</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <p>BEM VINDO AO ULTIMATE GAMING</p>
+    <p>O melhor lugar para você encontrar os melhor do mundo dos Games</p>
+
+    <h1>Antes de começar, faça o seu login ou cadastre-se</h1>
+
+    <div style="text-align: center;">
+    <a href="/login" class="botao_index">Login</a>
+    <a href="/cadastro" class="botao_index">Cadastre-se</a>
+    </div>
+
+    {% if logout_msg %}
+    <p class="mensagem-saida">Você saiu da sua conta! Espero você de volta em breve! 👋</p>
+    {% endif %}
+
+<section id="mini_sobre">
+    <h2>Resumo do Ultimate Gaming</h2>
+    <p>O Ultimate Gaming é a sua plataforma definitiva para tudo relacionado a jogos. Desde análises de jogos até notícias e dicas, temos tudo o que você precisa para aprimorar sua experiência de jogo.</p>
+</section>
+
+<footer>
+    &copy; 2025 Ultimate Gaming. Todos os direitos reservados.
+</footer>
+
+<script>
+    setTimeout(function() {
+        const msg = document.querySelector('.mensagem-saida');
+        if (msg) {
+            msg.style.display = 'opacity 0.5s ease';
+            msg.style.opacity = '0';
+            setTimeout(() => msg.remove(), 500);
+        }
+    }, 4000);
+</script>
+
+</body>
+</html>

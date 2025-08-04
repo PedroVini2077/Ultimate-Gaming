@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Gaming</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <p>BEM VINDO A ÁREA DE CADASTRO</p>
+    <h1>Preencha os campos abaixo para se cadastrar</h1>
+
+    <form action="/cadastro" method="post">
+
+       <label for="nome">Digite seu nome:</label>
+        <input type="text" id="nome" name="nome" value="{{ nome or ''}}" class="campo-input">
+        {% if erros.nome %}
+        <p class="mensagem-erro">{{ erros.nome }}</p>
+        {% endif %}
+        <br>
+
+        <label for="email">Digite seu email:</label>
+        <input type="email" id="email" name="email" value="{{ email or ''}}" class="campo-input">
+        {% if erros.email %}
+        <p class="mensagem-erro">{{ erros.email }}</p>
+        {% endif %}
+        <br>
+
+        <label for="tefone">Digite seu telefone:</label>
+        <input type="tel" id="telefone" name="telefone" value="{{ telefone or ''}}" class="campo-input">
+        {% if erros.telefone %}
+        <p class="mensagem-erro">{{ erros.telefone }}</p>
+        {% endif %}
+        <br>
+
+        <label for="data_nascimento">Digite sua data de nascimento:</label>
+        <input type="date" id="data_nascimento" name="data_nascimento" value="{{ data_nascimento or ''}}" class="campo-input">
+        {% if erros.data_nascimento %}
+        <p class="mensagem-erro">{{ erros.data_nascimento }}</p>
+        {% endif %}
+        <br>
+
+        <label for="senha">Digite sua senha:</label>
+        <div class="campo-senha">
+        <input type="password" id="senha" name="senha" class="campo-input" placeholder="Digite sua senha">
+        <span class="toggle-senha" onclick="toggleSenha('senha', this)">👁️</span>
+        </div>
+        <p class="mensagem-informativa">A senha deve conter entre 6 a 20 caracteres, pode incluir letras, números e símbolos especiais.</p>
+        {% if erros.senha %}
+        <p class="mensagem-erro">{{ erros.senha }}</p>
+        {% endif %}
+        <br>
+
+        <label for="confirmar_senha">Confirme sua senha:</label>
+        <div class="campo-senha">
+        <input type="password" id="confirmar_senha" name="confirmar_senha" class="campo-input" placeholder="Confirme sua senha">
+        <span class="toggle-senha" onclick="toggleSenha('confirmar_senha', this)">👁️</span>
+        </div>
+        {% if erros.confirmar_senha %}
+        <p class="mensagem-erro">{{ erros.confirmar_senha }}</p>
+        {% endif %}
+        <br>
+        
+        <button type="submit">Cadastrar</button>
+    </form>
+
+<h1>Se quiser voltar para a página inicial clique <a href="/" class="botao_cadastro">aqui</a></h1>
+<h1>Se você já tem uma conta, faça login <a href="/login" class="botao_cadastro">aqui</a></h1>
+
+<footer>
+    &copy; 2025 Ultimate Gaming. Todos os direitos reservados.
+</footer>
+
+{% if sucesso%}
+<div class='popup' id='popupSucesso'>
+    <div class='popup-content'>
+        <h2>Sucesso!</h2>
+        <p>Cadastro realizado com sucesso! ✅🎮</p>
+
+        <div class='botoes-popup'>
+            <a href="/" class="botao_popup">Voltar para a página inicial</a>
+            <a href="/login" class="botao_popup">Fazer login</a>
+            <button class="fechar-popup" onclick="fecharPopup()">Fechar</button>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if email_duplicado %}
+<div class='popup' id+'popupEmail'>
+    <div class='popup-content'>
+        <h2>Erro!</h2>
+        <p>Email já cadastrado. Por favor, tente novamente. ❌</p>
+
+        <div class='botoes-popup'>
+            <a href="/login" class="botao_popup">Faça login</a>
+            <button class="fechar-popup" onclick="fecharPopup('popupEmail')">Fechar</button>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<script>
+function fecharPopup() {
+    const popup = document.querySelector('.popup');
+    if (popup) {
+        popup.style.display = 'none';
+    }
+}
+</script>
+
+<script>
+function toggleSenha(idCampo, icone) {
+    const campo = document.getElementById(idCampo);
+    if (campo.type === 'password') {
+        campo.type = 'text';
+        icone.textContent = '🙈';
+    } else {
+        campo.type = 'password';
+        icone.textContent = '👁️';
+    }
+}
+</script>
+
+</body>
+</html>

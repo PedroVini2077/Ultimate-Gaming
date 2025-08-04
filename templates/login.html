@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Gaming</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <p>BEM VINDO A ÁREA DE LOGIN</p>
+
+    <h1>Preencha os campos abaixo para fazer login</h1>
+    <form action="/login" method="post">
+        <label for="email">Digite seu email:</label>
+        <input type="email" id="email" name="email" value="{{ email or '' }}">
+        {% if erros.email %}
+        <p class="mensagem-erro">{{ erros.email }}</p>
+        {% endif %}
+        <br>
+
+        <label for="senha">Digite sua senha:</label>
+        <input type="password" id="senha" name="senha">
+        {% if erros.senha %}
+        <p class="mensagem-erro">{{ erros.senha }}</p>
+        {% endif %}
+        {% if erros.geral %}
+        <p class="mensagem-erro">{{ erros.geral }}</p>
+        {% endif %}
+        <br>
+        
+        <button type="submit">Entrar</button>
+    </form>
+
+<h1>Se quiser voltar para a página inicial clique <a href="/" class="botao_login">aqui</a></h1>
+<h1>Se você ainda não tem uma conta, cadastre-se <a href="/cadastro" class="botao_login">aqui</a></h1>
+
+
+<footer>
+    &copy; 2025 Ultimate Gaming. Todos os direitos reservados.
+</footer>
+
+{% if sucesso %}
+<div class='popup' id='popupLogin'>
+    <div class='popup-content'>
+        <h2>Sucesso!</h2>
+        <p>Login realizado com sucesso! ✅🎮</p>
+
+        <div class='botoes-popup'>
+            <a href="/" class="botao_popup">Voltar para a página inicial</a>
+            <a href="/inicio" class="botao_popup">Ir para o site</a>
+            <button class="fechar-popup" onclick="fecharPopup('popupLogin')">Fechar</button>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if erro %}
+<div class='popup' id='popupErro'>
+    <div class='popup-content'>
+        <h2>Erro!</h2>
+        <p>Email ou senha incorretos. Por favor, tente novamente. ❌</p>
+
+        <div class='botoes-popup'>
+            <a href="/" class="botao_popup">Voltar a página inicial</a>
+           <button class="fechar-popup" onclick="fecharPopup('popupErro')">Fechar</button>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<script>
+function fecharPopup(id) {
+    const popup = document.getElementById(id);
+    if (popup) {
+        popup.style.display = 'none';
+    }
+}
+</script>
+</body>
+</html>

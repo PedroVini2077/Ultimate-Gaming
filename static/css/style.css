@@ -1,0 +1,360 @@
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+h2 {
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+}
+
+h3 {
+    font-size: 13px;
+    color: #ffffff;
+    text-align: center;
+}
+
+p {
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+}
+
+a {
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+footer {
+    font-size: 15px;
+    color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #06580a;
+}
+
+.botao_index {
+    background-color: #1624eb;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao_index:hover {
+    background-color: #079ad4;
+}
+
+.botao_login {
+    background-color: #fa930d;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.botao_login:hover {
+    background-color: #007932;
+}
+
+.botao_cadastro {
+    background-color: #fa930d;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao_cadastro:hover {
+    background-color: #007932;
+}
+
+#mini_sobre {
+    position: fixed;
+    bottom: 60px;   
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 500px;
+    max-width: 1000px;
+
+    min-height: 80px;
+    max-height: 250px;
+
+    background-color: #5f0606;
+    color : #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    z-index: 10;
+    overflow: auto;
+}
+
+#mini_sobre h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+#mini_sobre p {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+}
+
+.popup h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.botoes-popup {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.botao_popup {
+    background-color: #0a4ddd;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.botao_popup:hover {
+    background-color: #0fcbec;
+}
+
+.fechar-popup {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.fechar-popup:hover {
+    background-color: #800f0f;
+}
+
+.mensagem-erro {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.mensagem-informativa {
+    color: #666666;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.campo-senha {
+    position: relative;
+    width: 300px;
+    display: block;
+    margin: 0 auto 10px auto;
+    box-sizing: border-box;
+}
+
+.campo-senha input {
+    padding-right: 35px; /* Espaço para o ícone */
+    box-sizing: border-box;
+}
+
+.toggle-senha {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-75%);
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+    
+}
+
+.campo-input {
+    width: 300px;
+    padding: 5px;
+    margin: 0 auto 10px auto;
+    box-sizing: border-box;
+    display: block;
+}
+
+.botao_sobre {
+    background-color: #340be9;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.botao_sobre:hover {
+    background-color: #0fcbec;
+}
+
+.botao_inicio {
+    background-color: #0a4ddd;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botao_inicio:hover {
+    background-color: #0fcbec;
+}
+
+.botao_logout {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botoes-centrais {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 20px;
+    z-index: 999;
+}
+
+.mensagem-saida {
+    background-color: #f44336;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    margin: 20px auto;  /* Centraliza horizontalmente */
+    width: fit-content; /* Largura só do conteúdo */
+    max-width: 80%;     /* Impede de ficar grande demais */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* opcional: um sombreamento leve */
+}
+
+
+/* ------------------ CSS DESKTOP ------------------ */
+
+
+
+
+
+
+/* ------------------ CSS CELULAR ------------------ */
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 15px;
+        padding: 15px;
+    }
+    h1, h2, h3, p, a {
+        font-size: 16px;
+        text-align: center;
+    }
+
+.botao_index, .botao_login, .botao_cadastro {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+   #mini_sobre {
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    bottom: 80px;
+    padding: 15px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+    #mini_sobre h2 {
+        font-size: 18px;
+    }
+    
+}
