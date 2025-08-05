@@ -14,15 +14,19 @@
 
     <h1>Preencha os campos abaixo para fazer login</h1>
     <form action="/login" method="post">
+
         <label for="email">Digite seu email:</label>
-        <input type="email" id="email" name="email" value="{{ email or '' }}">
+        <input type="email" id="email" name="email" class="campo-input" value="{{ email or '' }}">
         {% if erros.email %}
         <p class="mensagem-erro">{{ erros.email }}</p>
         {% endif %}
         <br>
 
+        <div class="campo-senha">
         <label for="senha">Digite sua senha:</label>
-        <input type="password" id="senha" name="senha">
+        <input type="password" id="senha" name="senha" class="campo-input" placeholder="Digite sua senha">
+        <span class="toggle-senha-login" onclick="toggleSenha('senha', this)">👁️</span>
+        </div>
         {% if erros.senha %}
         <p class="mensagem-erro">{{ erros.senha }}</p>
         {% endif %}
@@ -76,6 +80,19 @@ function fecharPopup(id) {
     const popup = document.getElementById(id);
     if (popup) {
         popup.style.display = 'none';
+    }
+}
+</script>
+
+<script>
+function toggleSenha(idCampo, icone) {
+    const campo = document.getElementById(idCampo);
+    if (campo.type === 'password') {
+        campo.type = 'text';
+        icone.textContent = '🙈'; // Ícone de senha visível
+    } else {
+        campo.type = 'password';
+        icone.textContent = '👁️'; // Ícone de senha oculta
     }
 }
 </script>

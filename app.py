@@ -1,13 +1,24 @@
 from flask import Flask, request, render_template, redirect
-import os, json, re
-
-DATA_FILE = os.path.join(os.path.dirname(__file__), 'data', 'users.json')
+import os, json, re, bcrypt, sqlite3
 
 app = Flask(__name__)
 
-@app.route('/cadastro_teste')
-def cadastro_teste():
-    return render_template('cadastro_teste.html')
+conexao = sqlite3.connect('users.db')
+cursor = conexao.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    telefone TEXT NOT NULL,
+    data_nascimento TEXT NOT NULL,
+    senha TEXT NOT NULL
+)
+""")
+
+conexao.commit()
+conexao.close()
 
 @app.route('/logout')
 def logout():
@@ -44,16 +55,15 @@ def login():
         if erros:
             return render_template('login.html', erros=erros, email=email)
         
-        try:
-            with open(DATA_FILE, 'r', encoding='utf-8') as f:
-                users = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
-            erros['geral'] = 'Email ou senha incorretos.'
-            return render_template('login.html', erros=erros, email=email)
+        conexao = sqlite3.connect('users.db')
+        conexao.row_factory = sqlite3.Row
+        cursor = conexao.cursor()
+        cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+        usuario = cursor.fetchone()
+        conexao.close()
             
-        for user in users:
-            if user['email'] == email and user['senha'] == senha:
-                return render_template('login.html', sucesso=True, nome=user['nome'], erros={})
+        if usuario and bcrypt.checkpw(senha.encode('utf-8'), usuario['senha'].encode('utf-8')):
+            return render_template('login.html', sucesso=True, nome=usuario['nome'], erros={})
             
         erros['geral'] = 'Email ou senha incorretos.'
         return render_template('login.html', erros=erros, email=email)
@@ -104,40 +114,41 @@ def cadastro():
             if erros:
                 return render_template('cadastro.html', erros=erros, **dados_usuario)
             
-        
-            with open(DATA_FILE, 'r', encoding='utf-8') as f:
-                try:
-                    users = json.load(f)
-                    if not isinstance(users, list):
-                        users = []
-                except json.JSONDecodeError:
-                    users = []
-                    
-            for user in users:
-                if user['email'] == email:
-                    return render_template(
-                        'cadastro.html',
-                        email_duplicado=True,
-                        nome=nome,
-                        email=email,
-                        telefone=telefone,
-                        data_nascimento=data_nascimento,
-                        senha=senha,
-                        confirmar_senha=confirmar_senha,
-                        erros={}
-                    )
+            conexao = sqlite3.connect('users.db')
+            cursor = conexao.cursor()
+            cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+            usuario_existente = cursor.fetchone()
+            
+            if usuario_existente:
+                conexao.close()
+                return render_template(
+                    'cadastro.html',
+                    email_duplicado=True,
+                    nome=nome,
+                    email=email,
+                    telefone=telefone,
+                    data_nascimento=data_nascimento,
+                    senha=senha,
+                    confirmar_senha=confirmar_senha,
+                    erros={}
+                )
                 
             novo_usuario = {
                 'nome': nome,
                 'email': email,
                 'telefone': telefone,
                 'data_nascimento': data_nascimento,
-                'senha': senha
+                'senha': bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt()).decode('utf-8'),
             }
-            users.append(novo_usuario)
             
-            with open(DATA_FILE, 'w', encoding='utf-8') as f:
-                json.dump(users, f, ensure_ascii=False, indent=4)
+            conexao = sqlite3.connect('users.db')
+            cursor = conexao.cursor()
+            cursor.execute("""
+                INSERT INTO users (nome, email, telefone, data_nascimento, senha)
+                VALUES (?, ?, ?, ?, ?)
+            """, (nome, email, telefone, data_nascimento, novo_usuario['senha']))
+            conexao.commit()
+            conexao.close()
                 
             return render_template('cadastro.html', sucesso=True, erros={})
         

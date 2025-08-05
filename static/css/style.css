@@ -248,6 +248,17 @@ button:hover {
     
 }
 
+.toggle-senha-login {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-35%);
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+    
+}
+
 .campo-input {
     width: 300px;
     padding: 5px;
