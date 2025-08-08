@@ -10,6 +10,13 @@
 </head>
 
 <body>
+
+    <div class="container-principal">
+
+        <main class="conteudo">
+
+    <section class="pagina-cadastro">
+    <div class="caixa-cadastro">
     <p>BEM VINDO A ÁREA DE CADASTRO</p>
     <h1>Preencha os campos abaixo para se cadastrar</h1>
 
@@ -64,15 +71,14 @@
         {% endif %}
         <br>
         
-        <button type="submit">Cadastrar</button>
+        <button class="botao botao-cadastrar" type="submit">Cadastrar</button>
     </form>
-
-<h1>Se quiser voltar para a página inicial clique <a href="/" class="botao_cadastro">aqui</a></h1>
-<h1>Se você já tem uma conta, faça login <a href="/login" class="botao_cadastro">aqui</a></h1>
-
-<footer>
-    &copy; 2025 Ultimate Gaming. Todos os direitos reservados.
-</footer>
+    <h1>Se quiser voltar para a página inicial clique <a href="/" class="botao">aqui</a></h1>
+    <h1>Se você já tem uma conta, faça login <a href="/login" class="botao">aqui</a></h1>
+</div>
+</section>
+</main>
+</div>
 
 {% if sucesso%}
 <div class='popup' id='popupSucesso'>
@@ -90,7 +96,7 @@
 {% endif %}
 
 {% if email_duplicado %}
-<div class='popup' id+'popupEmail'>
+<div class='popup' id='popupEmail'>
     <div class='popup-content'>
         <h2>Erro!</h2>
         <p>Email já cadastrado. Por favor, tente novamente. ❌</p>

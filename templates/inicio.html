@@ -10,15 +10,38 @@
 </head>
 
 <body>
+
+    <div class="container-principal">
+
+        <main class="conteudo">
+
+    <section class="pagina-inicio">
     <p>AQUI COMEÇA A SUA JORNADA NO ULTIMATE GAMING</p>
 
-    <div class="botoes-centrais">
-    <a href="/sobre" class="botao_sobre">Saiba mais sobre nós</a>
-    <a href="/logout" class="botao_logout">Sair</a>
+    <div class="botoes-inicio">
+    <a href="/sobre" class="botao botao-sobre">Saiba mais sobre nós</a>
+    <a href="/logout" class="botao botao-sair">Sair</a>
     </div>
+    </section>
+</main>
+</div>
 
-    <footer>
+    <footer class="rodape">
         &copy; 2025 Ultimate Gaming. Todos os direitos reservados.
     </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const botaoSair = document.querySelector('.botao-sair');
+        if (botaoSair) {
+            botaoSair.addEventListener('click', function(event) {
+                event.preventDefault();
+                sessionStorage.setItem('showLogoutMessage', 'true');
+                window.location.href = '/logout';
+            });
+        }
+    });
+</script>
+
 </body>
 </html>

@@ -1,15 +1,116 @@
-body {
+/* ---------- ESTILOS GERAIS DA PÁGINA ---------- */
+
+body { 
+    background-color: #000000; /* Cor de fundo preta */
+    color: #ffffff; /* Cor padrão do texto: branco */
+    font-family: Arial, sans-serif; /* Fonte utilizada no site */
+    margin: 0; /* Remove margens padrão do navegador */
+    padding: 0; /* Espaço interno em todos os lados do body */
+}
+
+.container-principal {
+    max-width: 5000px; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 0; /* Espaçamento interno */
+    box-sizing: border-box;
+}
+
+.pagina-index {
+    text-align: center; /* Centraliza todo o conteúdo dessa seção */
+    margin-top: 40px; /* Espaço acima do conteúdo */
+}
+
+.pagina-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     background-color: #000000;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
+    overflow-y: hidden;
+
+    background-image: url('/static/css/imagens/Login-background.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.caixa-login {
+    background-color: #0a002e;
+    opacity: 0.9;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
     margin: 0;
+}
+
+.pagina-cadastro {
+    display: block;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+
+    background-image: url('/static/css/imagens/Cadastro-background.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.caixa-cadastro {
+    background-color: #0d003b;
+    opacity: 0.9;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 600px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.pagina-inicio {
+    position: relative;
+    min-height: calc(100vh - 40px);
+    overflow: hidden;
+    text-align: center; /* Centraliza todo o conteúdo dessa seção */
+    margin-top: 0;
+}
+
+.pagina-sobre {
+    text-align: center; /* Centraliza todo o conteúdo dessa seção */
+    margin-top: 40px; /* Espaço acima do conteúdo */
     padding: 20px;
 }
 
-h1 {
+.pagina-sobre h2 {
+    font-size: 50px;
+}
+
+.pagina-sobre p {
     font-size: 20px;
-    color: #ffffff;
-    text-align: center;
+}
+
+.msg-index {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    
+}
+
+/* ---------- TÍTULOS E TEXTOS ---------- */
+
+h1 {
+    font-size: 20px; /* Tamanho do texto */
+    color: #ffffff; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
 }
 
 h2 {
@@ -32,103 +133,140 @@ p {
 
 a {
     font-size: 16px;
-    text-decoration: none;
+    text-decoration: none; /* Remove o sublinhado dos links */
     text-align: center;
 }
 
-footer {
-    font-size: 15px;
-    color: #ffffff;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    padding: 10px;
+/* ---------- RODAPÉ ---------- */
+
+.rodape {
+    font-size: 15px; /* Tamanho do texto */
+    color: #ffffff; /* Cor do texto */
+    position: fixed; /* Fixa no canto da tela */
+    bottom: 0; /* Alinha no rodapé */
+    right: 0; /* Encosta à direita */
+    padding: 10px; /* Espaço interno */
 }
 
+/* ---------- FORMULÁRIOS ---------- */
+
 form {
+    display: flex; /* Layout em flexbox */
+    flex-direction: column; /* Coloca os itens na vertical */
+    align-items: center; /* Centraliza horizontalmente */
+    margin-top: 20px; /* Espaço acima do formulário */
+}
+
+/* ---------- LINKS ESTILIZADOS COMO BOTÕES ---------- */
+
+.botao {
+    display: inline-block; /* Permite usar padding e margin */
+    background-color: #f17602; /* Laranja */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+    background-color: #520000; /* Vermelho escuro ao passar o mouse */
+}
+
+/* ---------- VARIAÇÕES DE BOTÕES POR CONTEXTO ---------- */
+
+.botao-index {
+    background-color: #0867f7;
+    padding: 12px 20px;
+}
+
+.botao-index:hover {
+    background-color: #2b04bb;
+}
+
+.botao-sobre {
+    background-color: #0b1bff;
+    padding: 12px 20px;
+}
+
+.botao-sobre:hover {
+    background-color: #07bedf;
+}
+
+.botao-sair {
+    background-color: #f70000;
+    padding: 12px 20px;
+}
+
+.botao-sair:hover {
+    background-color: #4e0000;
+}
+
+.botao-logar, .botao-cadastrar {
+    background-color: #01cc34;
+    padding: 12px 20px;
+}
+
+.botao-logar:hover, .botao-cadastrar:hover {
+    background-color: #00682f;
+}
+
+.botao-voltar {
+    background-color: #a80000;
+    padding: 5px 10px;
+}
+
+.botao-voltar:hover {
+    background-color: #b35f00;
+}
+
+.botoes-inicio {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    gap: 20px;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.botoes-index {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
 }
 
-button:hover {
-    background-color: #06580a;
-}
-
-.botao_index {
-    background-color: #1624eb;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.botao_index:hover {
-    background-color: #079ad4;
-}
-
-.botao_login {
-    background-color: #fa930d;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.botao_login:hover {
-    background-color: #007932;
-}
-
-.botao_cadastro {
-    background-color: #fa930d;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.botao_cadastro:hover {
-    background-color: #007932;
-}
+/* ---------- CAIXA MINI SOBRE (INFERIOR DA TELA) ---------- */
 
 #mini_sobre {
     position: fixed;
-    bottom: 60px;   
-    left: 50%;
-    transform: translateX(-50%);
-
+    bottom: 60px; /* Distância do rodapé */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta o centro real */
     width: 500px;
     max-width: 1000px;
-
     min-height: 80px;
     max-height: 250px;
-
     background-color: #5f0606;
     color : #ffffff;
     padding: 10px;
     border-radius: 20px;
     font-size: 15px;
-
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     z-index: 10;
-    overflow: auto;
+    overflow: auto; /* Permite rolagem se o conteúdo for maior */
 }
 
 #mini_sobre h2 {
@@ -143,16 +281,18 @@ button:hover {
     font-size: 16px;
 }
 
+/* ---------- POPUPS DE SUCESSO / ERRO ---------- */
+
 .popup {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* Centraliza no meio da tela */
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 1000; /* Garante que fique acima de tudo */
 }
 
 .popup-content {
@@ -175,11 +315,13 @@ button:hover {
     font-size: 16px;
 }
 
+/* ---------- BOTÕES DENTRO DO POPUP ---------- */
+
 .botoes-popup {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 10px; /* Espaço entre os botões */
 }
 
 .botao_popup {
@@ -212,6 +354,8 @@ button:hover {
     background-color: #800f0f;
 }
 
+/* ---------- MENSAGENS DE ERRO ---------- */
+
 .mensagem-erro {
     color: red;
     font-size: 14px;
@@ -224,6 +368,8 @@ button:hover {
     margin-top: 10px;
 }
 
+/* ---------- CAMPO DE SENHA COM ÍCONE ---------- */
+
 .campo-senha {
     position: relative;
     width: 300px;
@@ -233,7 +379,7 @@ button:hover {
 }
 
 .campo-senha input {
-    padding-right: 35px; /* Espaço para o ícone */
+    padding-right: 35px; /* Espaço para o ícone de olho */
     box-sizing: border-box;
 }
 
@@ -245,7 +391,6 @@ button:hover {
     cursor: pointer;
     font-size: 15px;
     user-select: none;
-    
 }
 
 .toggle-senha-login {
@@ -256,8 +401,9 @@ button:hover {
     cursor: pointer;
     font-size: 15px;
     user-select: none;
-    
 }
+
+/* ---------- CAMPOS DE INPUT PADRÃO ---------- */
 
 .campo-input {
     width: 300px;
@@ -267,51 +413,7 @@ button:hover {
     display: block;
 }
 
-.botao_sobre {
-    background-color: #340be9;
-    color: #ffffff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.botao_sobre:hover {
-    background-color: #0fcbec;
-}
-
-.botao_inicio {
-    background-color: #0a4ddd;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.botao_inicio:hover {
-    background-color: #0fcbec;
-}
-
-.botao_logout {
-    background-color: #f44336;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.botoes-centrais {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 20px;
-    z-index: 999;
-}
+/* ---------- MENSAGEM DE SAÍDA (tipo alerta) ---------- */
 
 .mensagem-saida {
     background-color: #f44336;
@@ -320,10 +422,13 @@ button:hover {
     color: white;
     font-size: 16px;
     text-align: center;
-    margin: 20px auto;  /* Centraliza horizontalmente */
-    width: fit-content; /* Largura só do conteúdo */
-    max-width: 80%;     /* Impede de ficar grande demais */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* opcional: um sombreamento leve */
+    margin: 20px auto; 
+    width: fit-content; 
+    max-width: 80%; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 
@@ -333,39 +438,364 @@ button:hover {
 
 
 
+/* ---------- ÁREA PARA MEDIA QUERIES (ADAPTAÇÃO) ---------- */
 
 /* ------------------ CSS CELULAR ------------------ */
 
-@media screen and (max-width: 600px) {
+@media (max-width: 768px) {
+    /* ---------- ESTILOS GERAIS ---------- */
     body {
-        font-size: 15px;
+        font-size: 14px;
+    }
+    
+    .container-principal {
+        padding: 0 10px;
+    }
+
+    /* ---------- TÍTULOS E TEXTOS ---------- */
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 24px;
+    }
+
+    /* ---------- PÁGINAS ESPECÍFICAS ---------- */
+    .pagina-login, .pagina-cadastro {
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    
+    .caixa-login, .caixa-cadastro {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .pagina-sobre h2 {
+        font-size: 30px;
+    }
+    
+    .pagina-sobre p {
+        font-size: 16px;
+    }
+
+    /* ---------- BOTÕES E LINKS ---------- */
+    .botoes-inicio, .botoes-index {
+        flex-direction: column; /* Alinha os botões em coluna */
+        gap: 15px; /* Reduz o espaçamento entre os botões */
+        position: static; /* Remove o posicionamento absoluto para que o fluxo normal da página funcione */
+        transform: none;
+        margin-top: 20px;
+    }
+
+    .botao-index, .botao-sobre, .botao-sair, .botao-logar, .botao-cadastrar {
+        padding: 10px 15px;
+        width: 80%;
+    }
+    
+    /* ---------- FORMULÁRIOS E INPUTS ---------- */
+    form {
+        margin-top: 10px;
+    }
+
+    .campo-input, .campo-senha {
+        width: 100%; /* Fazem os campos ocuparem a largura total */
+    }
+
+    /* ---------- MINI-SOBRE E RODAPÉ ---------- */
+    #mini_sobre {
+        width: 95%;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        min-height: auto;
+        padding: 10px;
+    }
+
+    #mini_sobre h2 {
+        font-size: 20px;
+    }
+
+    #mini_sobre p {
+        font-size: 14px;
+    }
+
+    .rodape {
+        font-size: 12px;
+        text-align: center;
+        padding: 5px;
+    }
+
+    /* ---------- POPUP ---------- */
+    .popup-content {
+        max-width: 90%;
         padding: 15px;
     }
-    h1, h2, h3, p, a {
+
+    .popup h2 {
+        font-size: 20px;
+    }
+
+    .popup-content p {
+        font-size: 14px;
+    }
+    
+    /* ---------- PÁGINA INICIAL ---------- */
+    .pagina-index {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    
+    .pagina-index p {
+        font-size: 20px; /* Reduz o tamanho da fonte para se adequar a telas pequenas */
+        margin: 10px 0; /* Adiciona um espaço para separar os parágrafos */
+    }
+
+    .msg-index {
+        position: static;
+        transform: none;
+        margin-top: 20px; /* Espaço entre os parágrafos e a mensagem de login */
+        text-align: center;
+    }
+    
+    .msg-index h1 {
         font-size: 16px;
         text-align: center;
     }
 
-.botao_index, .botao_login, .botao_cadastro {
+    .botoes-index {
+        position: static;
+        transform: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 30px; /* Espaço entre a mensagem de login e os botões */
+    }
+    
+    .botao-index {
         width: 100%;
+        max-width: 250px; /* Limita a largura máxima do botão para não ficar muito largo */
+    }
+
+    .mensagem-saida {
+        position: static;
+        margin-top: 20px;
+    }
+
+         /* ---------- PÁGINA DE LOGIN ---------- */
+     .pagina-login {
+        /* Garante que a página ocupe no mínimo a altura da tela, mas pode crescer */
+        min-height: 100vh;
+        
+        /* Adiciona um padding maior para garantir espaço acima e abaixo do conteúdo */
+        padding: 50px 20px;
+        
+        /* Remove o overflow para que a rolagem funcione se o conteúdo for grande */
+        overflow-y: auto;
+        
+        /* Garante que o fundo não se mova, dando a impressão de tela cheia */
+        background-attachment: scroll;
+    }
+
+    .caixa-login {
         padding: 10px;
+        width: 100%;
+        max-width: none; /* Remove a largura máxima para que ocupe a tela inteira, se necessário */
+    }
+
+    .caixa-login p {
+        font-size: 24px; /* Ajusta o tamanho da fonte do título principal */
+    }
+
+    .caixa-login h1 {
+        font-size: 16px; /* Ajusta o tamanho das fontes dos subtítulos */
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .campo-input {
+        width: 100%;
+        max-width: 280px; /* Adiciona uma largura máxima para o input não ficar gigante */
+        font-size: 14px;
+    }
+
+    .campo-senha {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .toggle-senha-login {
+        /* Ajusta o ícone de 'olho' para que não fique desalinhado */
+        transform: translateY(-30%);
+        right: 15px;
+        top: 50%;
+    }
+
+    .botoes-popup {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+     /* ---------- PÁGINA DE CADASTRO ---------- */
+    .pagina-cadastro {
+        /* Garante que o conteúdo não seja cortado e a rolagem funcione */
+        height: auto;
+        padding: 50px 20px;
+        overflow-y: auto;
+        background-attachment: scroll;
+    }
+
+    .caixa-cadastro {
+        padding: 20px;
+        width: 100%;
+        max-width: none;
+    }
+
+    .caixa-cadastro p {
+        font-size: 24px; /* Ajusta o tamanho da fonte do título principal */
+    }
+
+    .caixa-cadastro h1 {
+        font-size: 16px; /* Ajusta o tamanho das fontes dos subtítulos */
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    /* ---------- FORMULÁRIO DE CADASTRO ---------- */
+    form {
+        gap: 10px;
+    }
+
+    label {
+        align-self: flex-start; /* Alinha os rótulos à esquerda */
+    }
+
+    .campo-input {
+        width: 100%;
+        max-width: 280px; /* Adiciona uma largura máxima para o input */
+        font-size: 14px;
+    }
+
+    .campo-senha {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .toggle-senha-cadastro {
+        /* Ajusta o ícone de 'olho' para que não fique desalinhado */
+        transform: translateY(-50%);
+        right: 15px;
+        top: 40%;
+    }
+
+    .mensagem-informativa {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    /* ---------- PÁGINA INICIAL (Após o login) ---------- */
+
+.pagina-inicio {
+    /* Usa Flexbox para centralizar o conteúdo vertical e horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Garante que a página ocupe exatamente a altura da tela, sem rolar */
+    height: 100vh;
+    
+    /* Remove o overflow para evitar rolagem */
+    overflow: hidden;
+    
+    /* Centraliza todo o texto */
+    text-align: center;
+    
+    /* Adiciona padding para um espaçamento seguro, se necessário */
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+.pagina-inicio p {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 40px; /* Adiciona espaço entre o texto e os botões */
+}
+
+/* ---------- BOTÕES DA PÁGINA INICIAL ---------- */
+
+.botoes-inicio {
+    /* Remove o posicionamento absoluto para que os botões sigam o fluxo normal do Flexbox */
+    position: static;
+    transform: none;
+
+    display: flex;
+    flex-direction: row; /* Mantém os botões lado a lado no desktop */
+    align-items: center;
+    gap: 20px;
+}
+
+.pagina-sobre {
+        /* Garante um espaçamento interno adequado em telas pequenas */
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .pagina-sobre h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .pagina-sobre p {
+        /* Ajusta o tamanho da fonte para o texto principal */
+        font-size: 16px;
+        line-height: 1.5; /* Melhora a legibilidade com um bom espaçamento entre linhas */
+        text-align: justify; /* Alinha o texto para as duas extremidades para um visual mais limpo */
+        margin-bottom: 15px;
+    }
+
+    .pagina-sobre p strong {
         font-size: 16px;
     }
 
-   #mini_sobre {
-    width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 13px;
-    bottom: 80px;
-    padding: 15px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    white-space: normal;
-}
-
-    #mini_sobre h2 {
-        font-size: 18px;
+    .botao-voltar {
+        max-width: 250px;
+        padding: 5px 10px;
+        margin-top: 20px; /* Adiciona um bom espaço entre o texto e o botão */
     }
-    
+
+    /* ---------- RODAPÉ ---------- */
+    .rodape {
+        /* Permite que o rodapé se mova com a página até chegar ao final da área visível */
+        position: sticky; 
+        bottom: 0;
+        
+        /* Ocupa a largura total e garante o alinhamento */
+        width: 100%;
+        left: 0;
+        right: 0;
+        
+        /* Ajustes de estilo para o celular */
+        font-size: 12px;
+        text-align: center;
+        padding: 5px;
+    }
 }

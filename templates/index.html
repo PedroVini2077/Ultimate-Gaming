@@ -10,38 +10,61 @@
 </head>
 
 <body>
+
+    <div class="container-principal">
+
+        <main class="conteudo">
+            
+    <section class="pagina-index">
     <p>BEM VINDO AO ULTIMATE GAMING</p>
     <p>O melhor lugar para você encontrar os melhor do mundo dos Games</p>
 
+    <div class="msg-index">
     <h1>Antes de começar, faça o seu login ou cadastre-se</h1>
+    </div>
 
-    <div style="text-align: center;">
-    <a href="/login" class="botao_index">Login</a>
-    <a href="/cadastro" class="botao_index">Cadastre-se</a>
+    <div class="botoes-index">
+    <a href="/login" class="botao botao-index">Login</a>
+    <a href="/cadastro" class="botao botao-index">Cadastre-se</a>
     </div>
 
     {% if logout_msg %}
     <p class="mensagem-saida">Você saiu da sua conta! Espero você de volta em breve! 👋</p>
     {% endif %}
+    </section>
 
 <section id="mini_sobre">
     <h2>Resumo do Ultimate Gaming</h2>
     <p>O Ultimate Gaming é a sua plataforma definitiva para tudo relacionado a jogos. Desde análises de jogos até notícias e dicas, temos tudo o que você precisa para aprimorar sua experiência de jogo.</p>
 </section>
 
-<footer>
+</main>
+
+<footer class="rodape">
     &copy; 2025 Ultimate Gaming. Todos os direitos reservados.
 </footer>
 
+</div>
+
 <script>
-    setTimeout(function() {
+    document.addEventListener('DOMContentLoaded', (event) => {
         const msg = document.querySelector('.mensagem-saida');
-        if (msg) {
-            msg.style.display = 'opacity 0.5s ease';
-            msg.style.opacity = '0';
-            setTimeout(() => msg.remove(), 500);
+        const showMessage = sessionStorage.getItem('showLogoutMessage');
+
+        if (msg && showMessage) {
+            sessionStorage.removeItem('showLogoutMessage');
+            msg.style.display = 'block';
+            setTimeout(() => {
+                msg.style.opacity = '1';
+            }, 50);
+            setTimeout(function() {
+                msg.style.opacity = '0';
+                setTimeout(() => msg.remove(), 500); 
+            }, 4000); 
+        } else if (msg) {
+            msg.style.display = 'none';
         }
-    }, 4000);
+    });
 </script>
 
 </body>

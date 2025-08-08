@@ -10,6 +10,13 @@
 </head>
 
 <body>
+
+    <div class="container-principal">
+
+        <main class="conteudo-login">
+
+    <section class="pagina-login">
+    <div class="caixa-login">
     <p>BEM VINDO A ÁREA DE LOGIN</p>
 
     <h1>Preencha os campos abaixo para fazer login</h1>
@@ -35,16 +42,14 @@
         {% endif %}
         <br>
         
-        <button type="submit">Entrar</button>
+        <button class="botao botao-logar" type="submit">Entrar</button>
     </form>
-
-<h1>Se quiser voltar para a página inicial clique <a href="/" class="botao_login">aqui</a></h1>
-<h1>Se você ainda não tem uma conta, cadastre-se <a href="/cadastro" class="botao_login">aqui</a></h1>
-
-
-<footer>
-    &copy; 2025 Ultimate Gaming. Todos os direitos reservados.
-</footer>
+    <h1>Se quiser voltar para a página inicial clique <a href="/" class="botao">aqui</a></h1>
+    <h1>Se você ainda não tem uma conta, cadastre-se <a href="/cadastro" class="botao">aqui</a></h1>
+</div>
+</section>
+</main>
+</div>
 
 {% if sucesso %}
 <div class='popup' id='popupLogin'>
